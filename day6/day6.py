@@ -28,7 +28,7 @@ def get_all_yes(group):
     s = get_group_set(group)
     for person in group:
         person_set = set(person)
-        s = s - (s - person_set)
+        s &= person_set
     return s
 
 def sub2():

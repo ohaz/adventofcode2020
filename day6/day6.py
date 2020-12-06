@@ -16,9 +16,6 @@ def get_group_set(group):
             s.add(answer)
     return s
 
-def group_size(group):
-    return len(group)
-
 def sub1():
     all_answers = get_file_entries('day6/input.txt')
     total_answers = 0

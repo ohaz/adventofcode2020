@@ -25,24 +25,24 @@ class Node:
     def add_child(self, child, amount=0):
         self.children.append(child)
         self._amounts[child] = amount
-    
+
     def generate_dot_names(self, dot):
         dot.node(self.name, self.name)
         for child in self.children:
             child.generate_dot_names(dot)
- 
+
     def generate_dot_edges(self, dot):
         for child in self.children:
             label = ''
             if child in self._amounts.keys():
-                label = str(self._amounts[child]) 
+                label = str(self._amounts[child])
             dot.edge(self.name, child.name, label=label)
             child.generate_dot_edges(dot)
 
     def generate_dot(self, dot):
         self.generate_dot_names(dot)
         self.generate_dot_edges(dot)
-           
+
 
     def get_all_subnodes(self):
         subtree = []
@@ -111,7 +111,7 @@ def build_tree_with_weights(node, rules):
             already_generated_nodes[child[1]] = new_node
             newly_generated_nodes.append(new_node)
         node.add_child(already_generated_nodes[child[1]], amount=int(child[0]))
-    for child in newly_generated_nodes: 
+    for child in newly_generated_nodes:
         build_tree_with_weights(child, rules)
 
 def sub2():

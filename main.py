@@ -5,6 +5,7 @@ from day4 import day4
 from day5 import day5
 from day6 import day6
 from day7 import day7
+from day8 import day8
 
 days = [
     (day1.sub1, day1.sub2),
@@ -14,6 +15,7 @@ days = [
     (day5.sub1, day5.sub2),
     (day6.sub1, day6.sub2),
     (day7.sub1, day7.sub2),
+    (day8.sub1, day8.sub2),
     ]
 
 for index, day in enumerate(days):

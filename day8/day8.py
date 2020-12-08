@@ -1,5 +1,5 @@
 from file_reader import get_file_entries
-from copy import deepcopy
+from copy import copy
 
 accumulator = 0
 
@@ -51,9 +51,9 @@ def sub2():
         instruction, parameter = parse_command(line)
         ran_successfully = False
         if instruction == 'jmp':
-            ran_successfully = modify_and_run(deepcopy(program), 'nop', line, index)
+            ran_successfully = modify_and_run(copy(program), 'nop', line, index)
         elif instruction == 'nop':
-            ran_successfully = modify_and_run(deepcopy(program), 'jmp', line, index)
+            ran_successfully = modify_and_run(copy(program), 'jmp', line, index)
         
         if ran_successfully:
             print(accumulator)

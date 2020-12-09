@@ -4,9 +4,9 @@ from itertools import combinations
 def possible_options(numbers):
     return {x: sum(x) for x in combinations(numbers, 2)}
 
-def get_first_invalid_number(numbers, preemble_size=25):
-    for index, i in enumerate(numbers[preemble_size:]):
-        sums = possible_options(numbers[index:index+preemble_size])
+def get_first_invalid_number(numbers, preamble_size=25):
+    for index, i in enumerate(numbers[preamble_size:]):
+        sums = possible_options(numbers[index:index+preamble_size])
         if not i in sums.values():
             return i
 

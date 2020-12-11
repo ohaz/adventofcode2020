@@ -1,3 +1,5 @@
+import sys
+
 from day1 import day1
 from day2 import day2
 from day3 import day3
@@ -8,6 +10,7 @@ from day7 import day7
 from day8 import day8
 from day9 import day9
 from day10 import day10
+from day11 import day11
 
 days = [
     (day1.sub1, day1.sub2),
@@ -20,11 +23,22 @@ days = [
     (day8.sub1, day8.sub2),
     (day9.sub1, day9.sub2),
     (day10.sub1, day10.sub2),
+    (day11.sub1, day11.sub2),
     ]
 
-for index, day in enumerate(days):
+def run_day(index, day):
     print(f'* Running day {index + 1}')
     print('- Running part 1')
     day[0]()
     print('- Running part 2')
     day[1]()
+
+
+if len(sys.argv) > 1:
+    index = int(sys.argv[1]) - 1
+    run_day(index, days[index])
+    exit()
+    
+
+for index, day in enumerate(days):
+    run_day(index, day)

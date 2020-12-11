@@ -7,7 +7,7 @@ from copy import deepcopy
 class Seat(Enum):
     EMPTY = 'L'
     FULL = '#'
-    ROW = '.'
+    FLOOR = '.'
     OUTSIDE = '*'
 
 def count_neighbours(row_index, column_index, airplane):
@@ -26,7 +26,7 @@ def step(airplane, neighbour_counter, allowed_neighbours=4):
     new_airplane = deepcopy(airplane)
     for row_index, row in enumerate(airplane):
         for column_index, column in enumerate(row):
-            if column == Seat.ROW or column == Seat.OUTSIDE:
+            if column == Seat.FLOOR or column == Seat.OUTSIDE:
                 continue
             neighbours = neighbour_counter(row_index, column_index, airplane)
             if column == Seat.EMPTY and neighbours == 0:

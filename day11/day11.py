@@ -42,9 +42,9 @@ def count_occupied(airplane):
     count = sum([x.count(Seat.FULL) for x in airplane])
     return count
 
-def sub1():
+def generate_airplane(filename='day11/input.txt'):
     airplane = []
-    for line in get_file_entries('day11/input.txt'):
+    for line in get_file_entries(filename):
         airplane.append([Seat.OUTSIDE])
         for character in line:
             airplane[-1].append(Seat(character))
@@ -52,6 +52,10 @@ def sub1():
     empty_row = [Seat.OUTSIDE for _ in range(len(airplane[0]))]
     airplane.insert(0, empty_row)
     airplane.append(empty_row)
+    return airplane
+
+def sub1():
+    airplane = generate_airplane()
     changed_seats = -1
     while changed_seats != 0:
         airplane, changed_seats = step(airplane, count_neighbours)
@@ -81,15 +85,7 @@ def count_neighbours_vector(row_index, column_index, airplane):
     return full_seats
 
 def sub2():
-    airplane = []
-    for line in get_file_entries('day11/input.txt'):
-        airplane.append([Seat.OUTSIDE])
-        for character in line:
-            airplane[-1].append(Seat(character))
-        airplane[-1].append(Seat.OUTSIDE)
-    empty_row = [Seat.OUTSIDE for _ in range(len(airplane[0]))]
-    airplane.insert(0, empty_row)
-    airplane.append(empty_row)
+    airplane = generate_airplane()
     changed_seats = -1
     while changed_seats != 0:
         airplane, changed_seats = step(airplane, count_neighbours_vector, allowed_neighbours=5)

@@ -11,6 +11,7 @@ from day8 import day8
 from day9 import day9
 from day10 import day10
 from day11 import day11
+from day12 import day12
 
 days = [
     (day1.sub1, day1.sub2),
@@ -24,6 +25,7 @@ days = [
     (day9.sub1, day9.sub2),
     (day10.sub1, day10.sub2),
     (day11.sub1, day11.sub2),
+    (day12.sub1, day12.sub2),
     ]
 
 def run_day(index, day):

@@ -13,6 +13,7 @@ from day10 import day10
 from day11 import day11
 from day12 import day12
 from day13 import day13
+from day14 import day14
 
 days = [
     (day1.sub1, day1.sub2),
@@ -28,6 +29,7 @@ days = [
     (day11.sub1, day11.sub2),
     (day12.sub1, day12.sub2),
     (day13.sub1, day13.sub2),
+    (day14.sub1, day14.sub2),
     ]
 
 def run_day(index, day):

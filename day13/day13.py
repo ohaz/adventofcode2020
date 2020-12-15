@@ -13,7 +13,7 @@ def sub1():
         current_time += 1
 
 def sub2():
-    data = get_file_entries('day13/input.txt')
+    '''data = get_file_entries('day13/input.txt')
     starttime = int(data[0])
     bustimes = [x for x in data[1].split(',')]
     for index in range(len(bustimes)):
@@ -41,3 +41,5 @@ def sub2():
     sol, rnorm = nnls(np.array(x), np.array(t))
     #sol = np.linalg.lstsq(np.array(x), np.array(t), rcond=None)
     print(sol, rnorm)
+    '''
+    pass

@@ -1,7 +1,4 @@
 from file_reader import get_file_entries
-import numpy as np
-from sympy import *
-from scipy.optimize import nnls
 
 def sub1():
     data = get_file_entries('day13/input.txt')

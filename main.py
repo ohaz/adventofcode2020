@@ -32,5 +32,5 @@ if len(sys.argv) > 1:
     exit()
     
 
-for day in enumerate(days):
+for day in days:
     run_day(day)

@@ -1,52 +1,36 @@
 import sys
+import importlib
+import os
+import re
 
-from day1 import day1
-from day2 import day2
-from day3 import day3
-from day4 import day4
-from day5 import day5
-from day6 import day6
-from day7 import day7
-from day8 import day8
-from day9 import day9
-from day10 import day10
-from day11 import day11
-from day12 import day12
-from day13 import day13
-from day14 import day14
-from day15 import day15
+def atoi(text):
+    return int(text) if text.isdigit() else text
 
-days = [
-    (day1.sub1, day1.sub2),
-    (day2.sub1, day2.sub2),
-    (day3.sub1, day3.sub2),
-    (day4.sub1, day4.sub2),
-    (day5.sub1, day5.sub2),
-    (day6.sub1, day6.sub2),
-    (day7.sub1, day7.sub2),
-    (day8.sub1, day8.sub2),
-    (day9.sub1, day9.sub2),
-    (day10.sub1, day10.sub2),
-    (day11.sub1, day11.sub2),
-    (day12.sub1, day12.sub2),
-    (day13.sub1, day13.sub2),
-    (day14.sub1, day14.sub2),
-    (day15.sub1, day15.sub2),
-    ]
+def natural_keys(text):
+    '''
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy's implementation in the comments)
+    '''
+    return [ atoi(c) for c in re.split(r'(\d+)', text) ]
 
-def run_day(index, day):
-    print(f'* Running day {index + 1}')
+
+days = [x for x in os.listdir() if x.startswith('day')]
+days.sort(key=natural_keys)
+
+def run_day(day):
+    module = importlib.import_module(f'{day}.{day}')
+    print(f'* Running {day}')
     print('- Running part 1')
-    day[0]()
+    module.sub1()
     print('- Running part 2')
-    day[1]()
-
+    module.sub2()
 
 if len(sys.argv) > 1:
-    index = int(sys.argv[1]) - 1
-    run_day(index, days[index])
+    day_number = int(sys.argv[1])
+    run_day(f'day{day_number}')
     exit()
     
 
-for index, day in enumerate(days):
-    run_day(index, day)
+for day in enumerate(days):
+    run_day(day)

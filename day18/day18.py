@@ -1,7 +1,7 @@
 from file_reader import get_file_entries
 import re
 from collections import defaultdict, deque
-from ast import parse, NodeTransformer, Mult, Add, copy_location, NodeVisitor, dump, literal_eval, Expression, fix_missing_locations
+from ast import parse, NodeTransformer, Mult, Add, copy_location, NodeVisitor, fix_missing_locations
 
 class ReplaceAst(NodeTransformer):
 

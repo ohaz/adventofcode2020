@@ -28,6 +28,7 @@ def calculate(line):
     return eval(a)
 
 def sub1():
+    print('Attention! The functions of today evaluate any input brought in by input.txt - NEVER run this with arbitrary files! It may cause your device to be compromised!')
     print(sum([calculate(line.replace('*', '-')) for line in get_file_entries('day18/input.txt')]))
 
 

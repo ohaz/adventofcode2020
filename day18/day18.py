@@ -5,19 +5,18 @@ from ast import parse, NodeTransformer, Mult, Add, copy_location, NodeVisitor, f
 
 class ReplaceAst(NodeTransformer):
 
-    def visit_Div(self, node):
-        new_node = Add()
+    def replace(self, node, new_node):
         copy_location(new_node, node)
-
         NodeVisitor.generic_visit(self, new_node)
         return new_node
+
+    def visit_Div(self, node):
+        new_node = Add()
+        return self.replace(node, new_node)
 
     def visit_Sub(self, node):
         new_node = Mult()
-        copy_location(new_node, node)
-
-        NodeVisitor.generic_visit(self, new_node)
-        return new_node
+        return self.replace(node, new_node)
 
 def calculate(line):
     ast = parse(line, mode='eval')
